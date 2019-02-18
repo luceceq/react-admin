@@ -12,7 +12,6 @@ npm start
 npm run build
 ```
 
-Development live URL: https://admin.dev.thetrackr.com/
 
 
 ## Dependencies
