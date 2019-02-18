@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.app-wrap {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* #root > * {
+  flex: 1;
+} */
