@@ -108,6 +108,10 @@ AppBarMenu.propTypes = {
   auth: PropTypes.object,
 };
 
+AppBarMenu.defaultProps = {
+  auth:{}
+}
+
 const mapStateToProps = state => ({
   auth: state.auth,
 });
