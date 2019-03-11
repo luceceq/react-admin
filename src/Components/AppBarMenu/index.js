@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from "redux";
-import { connect } from 'react-redux';
-import { push } from 'connected-react-router';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {push} from 'connected-react-router';
 
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -13,7 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import IconButton from '@material-ui/core/IconButton';
 
-import { logOutAction } from "../../Actions/auth";
+import {logOutAction} from '../../Actions/auth';
 
 const styles = theme => ({
   appBar: {
@@ -39,40 +39,49 @@ class AppBarMenu extends Component {
   };
 
   handleMenu = event => {
-    this.setState({ anchorEl: event.currentTarget });
+    this.setState ({anchorEl: event.currentTarget});
   };
 
   handleClose = () => {
-    this.setState({ anchorEl: null });
+    this.setState ({anchorEl: null});
   };
 
   handleLogout = () => {
-    this.props.dispatchLogout();
-    this.handleClose();
-  }
+    this.props.dispatchLogout ();
+    this.handleClose ();
+  };
 
   goToDashboard = () => {
-    this.props.changePage('dashboard');
-  }
+    this.props.changePage ('dashboard');
+  };
 
-  render() {
-    const { classes, auth } = this.props;
-    const { anchorEl } = this.state;
-    const open = Boolean(anchorEl);
+  render () {
+    const {classes, auth} = this.props;
+    const {anchorEl} = this.state;
+    const open = Boolean (anchorEl);
 
     return (
       <AppBar className={classes.appBar}>
         <AppBar position="static">
           <Toolbar>
-            <Typography variant="title" color="inherit" className={classes.flex}>
-              <span className={classes.spanClickable} onClick={this.goToDashboard}>Admin Dashboard</span>
+            <Typography
+              variant="title"
+              color="inherit"
+              className={classes.flex}
+            >
+              <span
+                className={classes.spanClickable}
+                onClick={this.goToDashboard}
+              >
+                Admin Dashboard
+              </span>
             </Typography>
 
-            {auth.user.signInUserSession && (
+            {auth.user.signInUserSession &&
               <div>
                 <IconButton
                   aria-owns={open ? 'menu-appbar' : null}
-                  aria-haspopup="true"
+                  aria-haspopup="false"
                   onClick={this.handleMenu}
                   color="inherit"
                 >
@@ -94,8 +103,7 @@ class AppBarMenu extends Component {
                 >
                   <MenuItem onClick={this.handleLogout}>Logout</MenuItem>
                 </Menu>
-              </div>
-            )}
+              </div>}
           </Toolbar>
         </AppBar>
       </AppBar>
@@ -109,22 +117,24 @@ AppBarMenu.propTypes = {
 };
 
 AppBarMenu.defaultProps = {
-  auth:{}
-}
+  auth: {},
+};
 
 const mapStateToProps = state => ({
   auth: state.auth,
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators(
+  bindActionCreators (
     {
-      changePage: (path = null) => push(`/${path}`),
-      dispatchLogout: () => logOutAction(),
+      changePage: (path = null) => push (`/${path}`),
+      dispatchLogout: () => logOutAction (),
     },
-    dispatch,
+    dispatch
   );
 
-const AppBarMenuWithStyle = withStyles(styles)(AppBarMenu);
+const AppBarMenuWithStyle = withStyles (styles) (AppBarMenu);
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppBarMenuWithStyle);
+export default connect (mapStateToProps, mapDispatchToProps) (
+  AppBarMenuWithStyle
+);
