@@ -13,7 +13,7 @@ import './Auth.css';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
-    paddingBottom: theme.spacing.unit * 4,
+    paddingBottom: theme.spacing.unit * 2,
     marginTop: theme.spacing.unit * 4,
     marginBottom: theme.spacing.unit * 4,
   }),
