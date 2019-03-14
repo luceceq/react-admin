@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
-import { logOut } from "../../Actions/auth";
+import {logOut} from '../../Actions/auth';
 
 import './Auth.css';
 
 const styles = theme => ({
-  root: theme.mixins.gutters({
-    paddingBottom: theme.spacing.unit * 2,
+  root: theme.mixins.gutters ({
+    paddingBottom: theme.spacing.unit * 4,
     marginTop: theme.spacing.unit * 4,
     marginBottom: theme.spacing.unit * 4,
   }),
@@ -22,7 +22,7 @@ const styles = theme => ({
     width: 300,
   },
   button: {
-    marginTop: theme.spacing.unit * 4
+    marginTop: theme.spacing.unit * 4,
   },
 });
 
@@ -30,21 +30,21 @@ class LogOut extends Component {
   state = {
     username: '',
     password: '',
+  };
+
+  componentDidMount () {
+    this.props.logOut ();
   }
 
-  componentDidMount() {
-    this.props.logOut();
-  }
-
-  render() {
-    const { classes } = this.props;
+  render () {
+    const {classes} = this.props;
 
     return (
       <Grid
         container
-        alignItems='center'
-        direction='row'
-        justify='center'
+        alignItems="center"
+        direction="row"
+        justify="center"
         className="auth"
       >
         <Grid item>
@@ -72,11 +72,11 @@ LogOut.propTypes = {
 
 const mapDispatchToProps = {
   logOut,
-}
+};
 
-const LogOutWithStyle = withStyles(styles)(LogOut);
+const LogOutWithStyle = withStyles (styles) (LogOut);
 
-export default connect(
+export default connect (
   null, // we don’t need to states.
-  mapDispatchToProps,
-)(LogOutWithStyle);
+  mapDispatchToProps
+) (LogOutWithStyle);
