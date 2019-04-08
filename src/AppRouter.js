@@ -34,7 +34,7 @@ class AppRouter extends Component {
 
         <ToastContainer
           position="top-center"
-          autoClose={3500}
+          autoClose={3000}
           hideProgressBar={false}
           newestOnTop
           closeOnClick
