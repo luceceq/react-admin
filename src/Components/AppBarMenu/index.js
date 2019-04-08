@@ -81,7 +81,7 @@ class AppBarMenu extends Component {
               <div>
                 <IconButton
                   aria-owns={open ? 'menu-appbar' : null}
-                  aria-haspopup="false"
+                  aria-haspopup="true"
                   onClick={this.handleMenu}
                   color="inherit"
                 >
