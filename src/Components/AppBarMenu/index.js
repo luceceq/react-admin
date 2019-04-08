@@ -73,7 +73,7 @@ class AppBarMenu extends Component {
                 className={classes.spanClickable}
                 onClick={this.goToDashboard}
               >
-                Admin Dashboard
+                Admin  Dashboard
               </span>
             </Typography>
 
