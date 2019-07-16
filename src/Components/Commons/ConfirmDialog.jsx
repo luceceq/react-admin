@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -9,42 +9,46 @@ import Button from '@material-ui/core/Button';
 
 import Slide from '@material-ui/core/Slide';
 
-function Transition(props) {
+function Transition (props) {
   return <Slide direction="up" {...props} />;
 }
 
 class confirmDialog extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props);
 
     this.state = {
       dialogShowingStatus: false,
     };
   }
 
-  handleModalOpen = () => this.setState({ dialogShowingStatus: true, });
-  handleModalClose = () => this.setState({ dialogShowingStatus: false, });
+  handleModalOpen = () => this.setState ({dialogShowingStatus: true});
+  handleModalClose = () => this.setState ({dialogShowingStatus: false});
 
   handleCallback = () => {
-    this.setState({
-      dialogShowingStatus: false,
-    }, () => {
-      this.props.callback();
-    });
-  }
+    this.setState (
+      {
+        dialogShowingStatus: false,
+      },
+      () => {
+        this.props.callback ();
+      }
+    );
+  };
 
-  render() {
+  render () {
     return (
       <React.Fragment>
-        {this.props.render(this.handleModalOpen)}
+        {this.props.render (this.handleModalOpen)}
 
-        <Dialog keepMounted
+        <Dialog
+          keepMounted
           TransitionComponent={Transition}
           open={this.state.dialogShowingStatus}
           onClose={this.handleModalClose}
         >
           <DialogTitle id="alert-dialog-slide-title">
-            {"Are you sure?"}
+            {'Do you want to confirm this action?'}
           </DialogTitle>
 
           <DialogContent>
@@ -54,8 +58,12 @@ class confirmDialog extends Component {
           </DialogContent>
 
           <DialogActions>
-            <Button onClick={this.handleModalClose} color="primary">Cancel</Button>
-            <Button onClick={this.handleCallback} color="secondary">Delete</Button>
+            <Button onClick={this.handleModalClose} color="primary">
+              Cancel
+            </Button>
+            <Button onClick={this.handleCallback} color="secondary">
+              Delete
+            </Button>
           </DialogActions>
         </Dialog>
       </React.Fragment>
