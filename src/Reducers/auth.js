@@ -1,14 +1,15 @@
-export const LOG_IN = 'LOG_IN';
-export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
-export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
-export const LOG_OUT = 'LOG_OUT';
+export const LOG_IN = "LOG_IN";
+export const LOG_IN_SUCCESS = "LOG_IN_SUCCESS";
+export const LOG_IN_FAILURE = "LOG_IN_FAILURE";
+export const LOG_OUT = "LOG_OUT";
 
+// initial state
 const initialState = {
   isAuthenticating: false,
   user: {},
   signInError: false,
-  signInErrorMessage: '',
-}
+  signInErrorMessage: ""
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -16,27 +17,27 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isAuthenticating: true,
-        signInError: false,
-      }
+        signInError: false
+      };
     case LOG_IN_SUCCESS:
       return {
         isAuthenticating: false,
-        user: action.user,
-      }
+        user: action.user
+      };
     case LOG_IN_FAILURE:
       return {
         ...state,
         isAuthenticating: false,
         signInError: true,
-        signInErrorMessage: action.error.message,
-      }
+        signInErrorMessage: action.error.message
+      };
 
     case LOG_OUT:
       return {
-        ...initialState,
-      }
+        ...initialState
+      };
 
     default:
       return state;
   }
-}
+};
