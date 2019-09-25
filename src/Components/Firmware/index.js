@@ -34,7 +34,7 @@ const styles = theme => ({
     overflowX: "auto"
   },
   toolbarRoot: {
-    // paddingRight: theme.spacing.unit,
+    paddingRight: theme.spacing.unit
   },
   spacer: {
     flex: "1 1 100%"
